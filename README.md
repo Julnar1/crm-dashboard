@@ -4,9 +4,8 @@ A modern, responsive CRM dashboard built with React and Redux for managing leads
 
 ## 🚀 Live Demo
 
-- **Vercel**: [https://your-crm-dashboard.vercel.app](https://your-crm-dashboard.vercel.app)
-- **GitHub**: [https://github.com/yourusername/crm-dashboard](https://github.com/yourusername/crm-dashboard)
-- **GitLab**: [https://gitlab.com/yourusername/crm-dashboard](https://gitlab.com/yourusername/crm-dashboard)
+- **Vercel**: (https://crm-dashboard-ten-peach.vercel.app)
+- **GitHub**: (https://github.com/Julnar1/crm-dashboard)
 
 ## 📋 Features Implemented
 
@@ -142,7 +141,7 @@ A modern, responsive CRM dashboard built with React and Redux for managing leads
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/crm-dashboard.git
+   git clone https://github.com/Julnar1/crm-dashboard.git
    cd crm-dashboard
    ```
 
@@ -199,7 +198,19 @@ Password: password123
 #### **Direct URL Navigation**
 - **Auth pages** (login, register, forgot-password, reset-password): Accessible by direct URL
 - **Protected pages** (dashboard, leads, companies): Redirect to login if not authenticated
-- **Example URLs**:
+  
+ **Live Demo URLs**:
+  - **Login**: `https://crm-dashboard-ten-peach.vercel.app/login` - User authentication page
+  - **Register**: `https://crm-dashboard-ten-peach.vercel.app/register` - New user registration page
+  - **Forgot Password**: `https://crm-dashboard-ten-peach.vercel.app/forgot-password` - Password reset request page
+  - **Reset Password**: `https://crm-dashboard-ten-peach.vercel.app/reset-password/abc123token` - New password entry page
+  - **Dashboard**: `https://crm-dashboard-ten-peach.vercel.app/` - Main dashboard (redirects to login if not authenticated)
+  - **Leads**: `https://crm-dashboard-ten-peach.vercel.app/leads` - Leads list page (redirects to login if not authenticated)
+  - **Companies**: `https://crm-dashboard-ten-peach.vercel.app/companies` - Companies list page (redirects to login if not authenticated)
+  - **Deals**: `https://crm-dashboard-ten-peach.vercel.app/deals` - Deals placeholder page (redirects to login if not authenticated)
+  - **Tickets**: `https://crm-dashboard-ten-peach.vercel.app/tickets` - Tickets placeholder page (redirects to login if not authenticated)
+    
+- **Local Development URLs** (for testing):
   - **Login**: `http://localhost:3000/login` - User authentication page
   - **Register**: `http://localhost:3000/register` - New user registration page
   - **Forgot Password**: `http://localhost:3000/forgot-password` - Password reset request page
@@ -641,9 +652,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👨‍💻 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+**Julnar**
+- GitHub: [@Julnar1](https://github.com/Julnar1)
 
 ## 🙏 Acknowledgments
 
