@@ -83,8 +83,11 @@ export const forgotPassword = createAsyncThunk(
       
       // Simulate token generation
       const token = 'abc123securetoken'; // In real app, generate securely
-      // Log the reset link for testing
-      console.log(`Simulated reset link: http://localhost:3000/reset-password/${token}`);
+      // Log the reset link for testing. Use current origin in production (e.g., Vercel) and localhost in development.
+      const origin = (typeof window !== 'undefined' && window.location && window.location.origin)
+        ? window.location.origin
+        : 'http://localhost:3000';
+      console.log(`Simulated reset link: ${origin}/reset-password/${token}`);
       return { message: 'If an account with this email exists, a password reset link has been sent.', email, token };
     } catch (error) {
       return rejectWithValue(error.message);
