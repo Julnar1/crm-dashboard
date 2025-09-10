@@ -11,7 +11,6 @@ const CompanyLeftPanel = ({ companyData, onOpenModal, onEditCompany }) => {
   const navigate = useNavigate();
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(true);
   const [copied, setCopied] = useState(false);
-  const [domainClicked, setDomainClicked] = useState(false);
 
   const toggleDetails = () => {
     setIsDetailsExpanded(!isDetailsExpanded);

@@ -11,10 +11,7 @@ import {
 import { IoPeople, IoBagCheck, IoCash } from "react-icons/io5";
 import { BsBagXFill } from "react-icons/bs";
 import { 
-  exportTeamPerformanceCSV, 
-  exportDashboardStatsCSV, 
-  exportSalesDataCSV, 
-  exportConversionDataCSV 
+  exportTeamPerformanceCSV
 } from "../utils/csvExport";
 import { toast } from "react-toastify";
 
@@ -117,38 +114,6 @@ const Dashboard = () => {
     }
   };
 
-  // Handle CSV export for dashboard stats
-  const handleExportStatsCSV = () => {
-    try {
-      exportDashboardStatsCSV(statData);
-      toast.success('Dashboard statistics exported successfully!');
-    } catch (error) {
-      console.error('Error exporting stats CSV:', error);
-      toast.error('Failed to export statistics. Please try again.');
-    }
-  };
-
-  // Handle CSV export for sales data
-  const handleExportSalesCSV = () => {
-    try {
-      exportSalesDataCSV(salesData);
-      toast.success('Sales data exported successfully!');
-    } catch (error) {
-      console.error('Error exporting sales CSV:', error);
-      toast.error('Failed to export sales data. Please try again.');
-    }
-  };
-
-  // Handle CSV export for conversion data
-  const handleExportConversionCSV = () => {
-    try {
-      exportConversionDataCSV(conversionData);
-      toast.success('Conversion funnel data exported successfully!');
-    } catch (error) {
-      console.error('Error exporting conversion CSV:', error);
-      toast.error('Failed to export conversion data. Please try again.');
-    }
-  };
 
   return (
     <div className="dashboard__container" role="main" style={{ marginTop: 0, paddingTop: 0 }}>

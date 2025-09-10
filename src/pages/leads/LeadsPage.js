@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import LeadForm from "./LeadForm";
 import LeadItem from "./LeadItem";
 import Pagination from "../../components/Pagination";
@@ -12,7 +11,6 @@ import { toast } from "react-toastify";
 
 const LeadsPage = () => {
   const leads = useSelector(state => state.leads.leads);
-  const navigate = useNavigate();
 
   // Form state for both create and edit
   const [showForm, setShowForm] = useState(false);
@@ -92,7 +90,6 @@ const LeadsPage = () => {
   const indexOfLast = currentPage * leadsPerPage;
   const indexOfFirst = indexOfLast - leadsPerPage;
   const currentLeads = filteredLeads.slice(indexOfFirst, indexOfLast);
-  const totalPages = Math.ceil(filteredLeads.length / leadsPerPage);
 
   // ✅ Reset to first page when filters change
   useEffect(() => {

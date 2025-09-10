@@ -13,9 +13,7 @@ import CompanyRightPanel from '../components/company/CompanyRightPanel';
 import { 
   selectCompanyById, 
   updateCompany,
-  selectCompaniesStatus,
   selectCompaniesLoading,
-  selectCompaniesError,
   resetStatus
 } from '../redux/slices/companiesSlice';
 import '../styles/_companyPage.scss';
@@ -27,9 +25,7 @@ const CompanyView = () => {
   
   // Redux selectors
   const companyData = useSelector(state => selectCompanyById(state, id));
-  const status = useSelector(selectCompaniesStatus);
   const loading = useSelector(selectCompaniesLoading);
-  const error = useSelector(selectCompaniesError);
   
   const [selectedTab, setSelectedTab] = useState("Activity");
   const [attachmentsOpen, setAttachmentsOpen] = useState(true);

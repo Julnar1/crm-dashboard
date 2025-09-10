@@ -12,9 +12,7 @@ import {
   selectAllCompanies, 
   createCompany, 
   updateCompany,
-  selectCompaniesStatus,
   selectCompaniesLoading,
-  selectCompaniesError,
   resetStatus
 } from "../redux/slices/companiesSlice";
 import { toast } from "react-toastify";
@@ -32,9 +30,7 @@ const CompaniesList = () => {
   
   // Redux selectors
   const companies = useSelector(selectAllCompanies);
-  const status = useSelector(selectCompaniesStatus);
   const loading = useSelector(selectCompaniesLoading);
-  const error = useSelector(selectCompaniesError);
   
   // Local state
   const [isCompanyFormDialogOpen, setIsCompanyFormDialogOpen] = useState(false);

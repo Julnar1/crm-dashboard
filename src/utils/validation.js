@@ -15,7 +15,7 @@ export const validationTests = {
   maxLength: (max) => (value) => value && value.length <= max,
   phone: (value) => {
     if (!value.trim()) return true; // Optional field
-    const cleanPhone = value.replace(/[\s\-\(\)\.]/g, "");
+    const cleanPhone = value.replace(/[\s\-().]/g, "");
     return phonePattern.test(cleanPhone);
   },
   passwordMatch: (value, form) => {

@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/themes/material_blue.css";
-import { toast } from "react-toastify";
 import { companyValidationRules, validateForm } from '../utils/validation';
 
 const initialFormState = {

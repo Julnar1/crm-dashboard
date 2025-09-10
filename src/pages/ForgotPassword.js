@@ -1,16 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import AuthInput from "../components/auth/AuthInput";
 import AuthButton from "../components/auth/AuthButton";
 import AuthLayout from "../components/auth/AuthLayout";
 import { useAuthForm } from "../hooks/useAuthForm";
 import { authValidationRules } from "../utils/validation";
-import { forgotPassword, selectForgotPasswordStatus } from "../redux/slices/authSlice";
+import { forgotPassword } from "../redux/slices/authSlice";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
-  const forgotPasswordStatus = useSelector(selectForgotPasswordStatus);
 
   const initialForm = {
     email: ""

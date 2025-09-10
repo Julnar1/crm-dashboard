@@ -145,7 +145,6 @@ const LeadView = () => {
   const [meetings, setMeetings] = useState([]);
 
   // Open/close states for accordion items
-  const [openNoteIdx, setOpenNoteIdx] = useState(null);
   const [openEmailIdx, setOpenEmailIdx] = useState(null);
   const [openCallId, setOpenCallId] = useState(null);
   const [openTaskId, setOpenTaskId] = useState(null);
