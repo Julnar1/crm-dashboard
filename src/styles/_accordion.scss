@@ -1,0 +1,102 @@
+// Shared accordion styles for notes and emails - matching original leadnotes styling
+.leadnotes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leadnotes-item {
+  margin-bottom: 18px;
+}
+
+.leadnotes-accordion-box {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fafbfc;
+  padding: 0;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(34,34,34,0.04);
+}
+.leadnotes-accordion-box.open {
+  box-shadow: 0 2px 8px rgba(80,37,201,0.10);
+  border-color: #5025c9;
+}
+
+.leadnotes-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 12px 16px;
+  user-select: none;
+}
+
+.leadnotes-accordion-arrow {
+  margin-left: 8px;
+  font-size: 1.1em;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+.leadnotes-accordion-arrow.open {
+  transform: rotate(180deg);
+}
+
+.leadnotes-content {
+  padding: 12px 16px 16px 16px;
+  font-size: 1.04em;
+  color: #222;
+  white-space: pre-line;
+}
+
+.leadnotes-accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.leadnotes-accordion-title {
+  margin-right: 8px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.leadnotes-accordion-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.leadnotes-accordion-preview {
+  color: #888;
+  font-size: 0.80em;
+  margin-left: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 220px;
+  display: block;
+}
+
+.leadnotes-accordion-date {
+  color: #888;
+  font-size: 0.80em;
+  margin-left: 16px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+.leadnotes-date {
+  display: none;
+}
+
+.leadnotes-note-month {
+  font-size: 0.98em;
+  color: #888;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  font-weight: 500;
+} 

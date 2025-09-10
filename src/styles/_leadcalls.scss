@@ -1,0 +1,121 @@
+@import 'variables';
+// LeadCalls styles
+
+.modal-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1004;
+}
+
+.modal-compose-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 480px;
+  min-width: 320px;
+  background: $bg-card;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  z-index: 1100;
+  border-radius: $radius-md;
+  padding: 32px 32px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: $text-muted;
+  cursor: pointer;
+  transition: color 0.2s;
+  &:hover { color: $text-color; }
+}
+
+.lead-form label {
+  margin-top: 18px;
+  font-weight: 500;
+  color: $text-color;
+  font-size: 15px;
+}
+
+.required {
+  color: $color-danger;
+  margin-left: 2px;
+}
+
+.note-rich-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: $bg-main;
+  border: 1px solid $border-color;
+  border-radius: $radius-xs $radius-xs 0 0;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: $text-muted;
+  margin-bottom: -2px;
+  margin-top: 8px;
+  span, b, i, u {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+}
+
+.lead-form textarea {
+  border-radius: 0 0 $radius-xs $radius-xs;
+  border-top: none;
+  min-height: 140px;
+  resize: vertical;
+  font-size: 15px;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.white-button {
+  background: $bg-card;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 0;
+  width: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover { background: $bg-main; }
+}
+
+.btn--primary {
+  background: $color-primary;
+  color: #fff !important;
+  border: 1px solid $color-primary;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 0;
+  width: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover { background: darken($color-primary, 10%); }
+}
+
+// Add more as needed 

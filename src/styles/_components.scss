@@ -1,0 +1,353 @@
+@import 'variables';
+@import 'mixins';
+
+// Card Components
+.card {
+  @include card-base;
+  @include card-hover;
+  
+  &--stat {
+    @include flex-between;
+    min-height: 90px;
+    padding: $spacing-lg $spacing-md;
+    
+    .card__content {
+      flex: 1;
+    }
+    
+    .card__icon {
+      @include flex-center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-left: $spacing-md;
+    }
+    
+    .card__label {
+      font-size: $font-size-sm;
+      font-weight: 500;
+      color: $text-muted;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .card__value {
+      font-size: $font-size-lg;
+      font-weight: 700;
+      line-height: 1.1;
+      color: $text-color;
+    }
+  }
+  
+  &--chart {
+    height: 100%;
+    
+    .card__header {
+      @include flex-between;
+      margin-bottom: $spacing-md;
+      
+      .card__title {
+        font-weight: 600;
+        color: $text-color;
+      }
+      
+      .card__actions {
+        select {
+          font-size: $font-size-sm;
+          border-color: $border-color;
+          
+          &:focus {
+            border-color: $color-primary;
+          }
+        }
+      }
+    }
+    
+    .card__body {
+      height: 220px;
+      border-radius: $radius-sm;
+      padding: $spacing-md;
+    }
+  }
+  
+  &--table {
+    .card__header {
+      @include flex-between;
+      margin-bottom: $spacing-md;
+      
+      .card__title {
+        font-weight: 600;
+        color: $text-color;
+      }
+      
+      .card__actions {
+        .btn {
+          @include button-outline;
+          font-size: $font-size-sm;
+        }
+      }
+    }
+  }
+}
+
+// Button Components
+.btn {
+  @include button-base;
+  
+  &--primary {
+    @include button-primary;
+  }
+  
+  &--outline {
+    @include button-outline;
+  }
+  
+  &--sm {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+  }
+  
+  &--lg {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-md;
+  }
+}
+
+// Table Components
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  
+  &__header {
+    background-color: $bg-main;
+    
+    th {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-sm;
+      font-weight: 500;
+      color: $text-muted;
+      text-align: left;
+      border-bottom: 1px solid $border-light;
+    }
+  }
+  
+  &__body {
+    tr {
+      border-bottom: 1px solid $border-light;
+      transition: $transition-fast;
+      
+      &:hover {
+        background-color: rgba($color-primary, 0.02);
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    
+    td {
+      padding: $spacing-sm $spacing-md;
+      vertical-align: middle;
+      color: $text-color;
+    }
+  }
+  
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    
+    &--success {
+      background-color: rgba($color-success, 0.1);
+      color: $color-success;
+    }
+    
+    &--danger {
+      background-color: rgba($color-danger, 0.1);
+      color: $color-danger;
+    }
+  }
+}
+
+// Progress Bar Components
+.progress {
+  &__item {
+    margin-bottom: $spacing-sm;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-xs;
+    
+    .progress__text {
+      font-size: $font-size-sm;
+      color: $text-muted;
+    }
+    
+    .progress__value {
+      font-size: $font-size-sm;
+      color: $text-muted;
+    }
+  }
+  
+  &__bar {
+    height: 6px;
+    background-color: #f1f1f1;
+    border-radius: $radius-xs;
+    overflow: hidden;
+    
+    .progress__fill {
+      height: 100%;
+      border-radius: $radius-xs;
+      transition: width $transition-normal ease;
+    }
+  }
+}
+
+// Form Components
+.form {
+  &__group {
+    margin-bottom: $spacing-md;
+  }
+  
+  &__label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: 500;
+    color: $text-color;
+  }
+  
+  &__input {
+    width: 100%;
+    padding: $spacing-sm;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    font-size: $font-size-sm;
+    transition: $transition-fast;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+    
+    &--search {
+      background-color: transparent;
+      border-left: none;
+      
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  
+  &__select {
+    padding: $spacing-sm;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    background-color: white;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+}
+
+// Icon Components
+.icon {
+  &--circle {
+    @include flex-center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid $border-color;
+    transition: $transition-fast;
+    
+    &--active {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: white;
+    }
+  }
+  
+  &--notification {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $border-light;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: $transition-fast;
+    
+    &:hover {
+      background-color: $bg-main;
+    }
+  }
+  
+  &--avatar {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    background-color: $color-primary;
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition-fast;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Utility Components
+.loading {
+  @include flex-center;
+  height: 200px;
+  color: $text-muted;
+  
+  &__spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid $border-light;
+    border-top: 3px solid $color-primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Chart Container
+.chart {
+  &__container {
+    height: 220px;
+    border-radius: $radius-sm;
+    padding: $spacing-md;
+  }
+  
+  &__tooltip {
+    background-color: $bg-card;
+    border: 1px solid $border-light;
+    border-radius: $radius-sm;
+    padding: $spacing-sm;
+    box-shadow: $shadow-md;
+  }
+} 

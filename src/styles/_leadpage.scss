@@ -1,0 +1,393 @@
+@import 'variables';
+
+// ------------------------------
+// Page Heading
+// ------------------------------
+.leads-heading {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+// ------------------------------
+// Header Row (Title + Buttons)
+// ------------------------------
+.leads-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+
+  h6 {
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .button-group {
+    display: flex;
+    gap: $spacing-xs;
+  }
+}
+
+// ------------------------------
+// Table Header Styling
+// ------------------------------
+// .checkbox-column {
+//   width: 40px;
+//   text-align: center;
+// }
+
+.dark-blue-header th {
+  background-color: $color-primary !important;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: $font-size-xs;
+  padding: $spacing-sm $spacing-xs;
+
+  // Removed checkbox input styles
+}
+
+// ------------------------------
+// Table Styling
+// ------------------------------
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background-color: $bg-card;
+  border: 1px solid $border-color;      
+  border-radius: $radius-md;
+  overflow: hidden;
+  table-layout: auto;
+
+  td,
+  th {
+    border: none !important;
+    border-bottom: 1px solid #ccc !important; // a visible light gray for testing
+
+    font-size: $font-size-xs;
+    color: $text-color;
+    vertical-align: middle;
+    padding: $spacing-sm $spacing-xs;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  th:first-child {
+    border-top-left-radius: $radius-md;
+  }
+
+  th:last-child {
+    border-top-right-radius: $radius-md;
+  }
+}
+
+// ------------------------------
+// Status Badge Styling
+// ------------------------------
+.badge {
+  padding: 5px;
+  border-radius: $radius-xs !important;
+  font-size: 10px;
+  font-weight: 500;
+  width: 65px;
+  height: 25px;
+  display: inline-block ;
+  align-content: center;
+
+  &.status-open {
+    background-color: #e3f1e6 !important;
+    color: #205522 !important;
+  }
+
+  &.status-new {
+    background-color: #e3ecf3 !important;
+    color: #2186b5 !important;
+  }
+
+  &.status-inprogress {
+    background-color: #fcead7 !important;
+    color: #8a4b13 !important;
+  }
+
+  &.status-converted {
+    background-color: rgba($color-primary, 0.15) !important;
+    color: $color-primary !important;
+  }
+}
+
+// ------------------------------
+// Buttons
+// ------------------------------
+.custom-button {
+  background-color: $color-primary !important;
+  color: white !important;
+  border: none;
+  padding: 6px $spacing-md !important;
+  font-size: 13px;
+  border-radius: $radius-xs;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: darken($color-primary, 10%) !important;
+  }
+}
+
+.custom-button.view-btn {
+  background: none !important;
+  color: #000 !important;
+  border: 1.5px solid $color-primary !important;
+  box-shadow: none !important;
+  font-weight: 500;
+}
+
+.white-button {
+  background-color: $bg-card !important;
+  color: $color-primary !important;
+  border: 1px solid $color-primary !important;
+  padding: 6px $spacing-md !important;
+  font-size: $font-size-sm;
+  border-radius: $radius-xs;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $bg-main !important;
+  }
+}
+
+// ------------------------------
+// Pagination
+// ------------------------------
+.custom-pagination {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  gap: 6px;
+  font-size: $font-size-sm;
+  margin: 0;
+  flex-wrap: wrap;
+
+  .page,
+  .arrow {
+    padding: 6px $spacing-sm;
+    border-radius: $spacing-sm;
+    cursor: pointer;
+    background-color: transparent;
+    transition: $transition-fast;
+  }
+
+  .page {
+    color: $text-color;
+
+    &:hover {
+      background-color: $bg-main;
+    }
+
+    &.active {
+      background-color: $color-primary;
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+
+  .arrow {
+    color: $color-primary;
+
+    &:hover {
+      background-color: $bg-main;
+    }
+
+    &.disabled {
+      color: $text-muted;
+      pointer-events: none;
+    }
+  }
+
+  .dots {
+    padding: 6px 10px;
+    color: $text-muted;
+    background: transparent;
+  }
+}
+
+// ------------------------------
+// Search Input
+// ------------------------------
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: $spacing-sm;
+
+  input {
+    width: 100%;
+    padding-left: 2.5rem;
+    font-size: $font-size-sm;
+    height: 38px;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    box-shadow: none;
+    font-family: $font-main;
+
+    &:focus {
+      border-color: $color-primary;
+      outline: none;
+      box-shadow: 0 0 0 0.15rem rgba($color-primary, 0.15);
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: $text-muted;
+    z-index: 10;
+    pointer-events: none;
+  }
+}
+
+// ------------------------------
+// Filters (Lead Status + Date)
+// ------------------------------
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+  margin-bottom: 20px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  position: relative;
+
+  label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: $spacing-xs;
+    color: $text-color;
+    font-family: $font-main;
+  }
+
+  input,
+  select {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    height: 38px;
+    font-family: $font-main;
+
+    &:focus {
+      border-color: $color-primary;
+      outline: none;
+      box-shadow: 0 0 0 0.15rem rgba($color-primary, 0.15);
+    }
+  }
+
+  .calendar-icon {
+    position: absolute;
+    top: 65%;
+    right: $spacing-sm;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: $text-muted;
+    cursor: pointer;
+    z-index: 10;
+  }
+}
+
+// ------------------------------
+// Responsive Design
+// ------------------------------
+@media (max-width: $breakpoint-md) {
+  .filters-container {
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  .filter-item {
+    width: 100%;
+  }
+
+  .search-wrapper input {
+    width: 100%;
+  }
+
+  .custom-pagination {
+    font-size: $font-size-xs;
+    gap: $spacing-xs;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: $spacing-xs 6px;
+  }
+
+  table td,
+  table th {
+    font-size: 11px;
+    padding: $spacing-xs $spacing-xs;
+  }
+}
+
+// ------------------------------
+// Blur Effect
+// ------------------------------
+.blur-background {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+// ------------------------------
+// Table Animation
+// ------------------------------
+.table-container {
+  &.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ------------------------------
+// Lead Link
+// ------------------------------
+.lead-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color $transition-fast;
+
+  &:hover {
+    text-decoration: underline;
+    color: darken($text-color, 20%);
+  }
+}
+
+
+
+td .text-primary {
+  color: $color-primary !important;
+}

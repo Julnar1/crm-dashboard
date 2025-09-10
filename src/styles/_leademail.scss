@@ -1,0 +1,398 @@
+@import 'variables';
+@import 'mixins';
+
+.modal-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1004;
+}
+
+.modal-compose-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 480px;
+  min-width: 320px;
+  background: $bg-card;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  z-index: 1100;
+  border-radius: $radius-md;
+  padding: 32px 32px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: $text-muted;
+  cursor: pointer;
+  transition: color 0.2s;
+  &:hover { color: $text-color; }
+}
+
+.lead-form label {
+  margin-top: 18px;
+  font-weight: 500;
+  color: $text-color;
+  font-size: 15px;
+}
+
+.required {
+  color: $color-danger;
+  margin-left: 2px;
+}
+
+.note-rich-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: $bg-main;
+  border: 1px solid $border-color;
+  border-radius: $radius-xs $radius-xs 0 0;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: $text-muted;
+  margin-bottom: -2px;
+  margin-top: 8px;
+  span, b, i, u {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+}
+
+.lead-form textarea {
+  border-radius: 0 0 $radius-xs $radius-xs;
+  border-top: none;
+  min-height: 140px;
+  resize: vertical;
+  font-size: 15px;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.white-button {
+  background: $bg-card;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 0;
+  width: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover { background: $bg-main; }
+}
+
+.btn--primary {
+  background: $color-primary;
+  color: #fff !important;
+  border: 1px solid $color-primary;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 0;
+  width: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover { background: darken($color-primary, 10%); }
+}
+
+.leademail-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+  @include flex-center;
+  z-index: 1004;
+  padding: $spacing-md;
+}
+
+.leademail-modal {
+  background: #fff;
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  width: 600px;
+  max-width: 98vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.leademail-header {
+  background: $color-primary;
+  color: #fff !important;
+  font-size: $font-size-md;
+  font-weight: 500;
+  padding: $spacing-md $spacing-lg;
+  @include flex-between;
+  border-radius: $radius-md $radius-md 0 0;
+  flex-shrink: 0;
+}
+
+.leademail-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color $transition-fast;
+  padding: 4px;
+  border-radius: $radius-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  
+  &:hover {
+    color: $color-primary-light;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.leademail-fields {
+  padding: $spacing-lg $spacing-lg 0 $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.leademail-row {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  position: relative;
+}
+
+.leademail-input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: $font-size-md;
+  padding: 16px 0 8px 0;
+  background: transparent;
+  outline: none;
+  transition: all $transition-fast;
+  border-radius: 0;
+  font-family: $font-main;
+  
+  &::placeholder {
+    color: $text-muted;
+    font-size: $font-size-sm;
+  }
+  
+  &:focus {
+    border-bottom: 2px solid $color-primary;
+    background-color: rgba($color-primary, 0.02);
+  }
+  
+  &:required:invalid {
+    border-bottom-color: $color-danger;
+  }
+}
+
+.leademail-ccbcc {
+  background: none;
+  border: none;
+  color: $text-muted;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: $radius-xs;
+  transition: all $transition-fast;
+  font-weight: 500;
+  white-space: nowrap;
+  
+  &:hover {
+    background: $bg-main;
+    color: $color-primary;
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.leademail-body {
+  flex: 1;
+  min-height: 300px;
+  border: none;
+  font-size: $font-size-md;
+  padding: $spacing-lg;
+  resize: vertical;
+  outline: none;
+  background: #fff;
+  box-shadow: none;
+  margin: 0 $spacing-lg;
+  font-family: $font-main;
+  line-height: 1.6;
+  
+  &::placeholder {
+    color: $text-muted;
+    font-size: $font-size-sm;
+  }
+  
+  &:focus {
+    background-color: rgba($color-primary, 0.02);
+  }
+}
+
+.leademail-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: $spacing-xs;
+  padding: $spacing-md $spacing-lg $spacing-lg $spacing-lg;
+  border-top: 1px solid #e0e0e0;
+  background: #fff;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.leademail-send {
+  background: $color-primary;
+  color: #fff;
+  font-weight: 600;
+  font-size: $font-size-md;
+  border: none;
+  border-radius: $radius-sm;
+  padding: 12px 24px;
+  min-width: 100px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: all $transition-fast;
+  box-shadow: 0 2px 4px rgba($color-primary, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  
+  &:hover:not(:disabled) {
+    background: darken($color-primary, 10%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba($color-primary, 0.3);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.leademail-send-dropdown {
+  font-size: 0.8em;
+  margin-left: 4px;
+  opacity: 0.8;
+}
+
+.leademail-toolbar-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: $text-muted;
+  padding: 8px;
+  border-radius: $radius-xs;
+  cursor: pointer;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  
+  &:hover {
+    background: $bg-main;
+    color: $color-primary;
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &:last-child {
+    margin-left: auto;
+    color: $color-danger;
+    
+    &:hover {
+      background: rgba($color-danger, 0.1);
+      color: $color-danger;
+    }
+  }
+}
+
+.tab-content .btn.btn--primary {
+  background: $color-primary !important;
+  color: #fff !important;
+  border: 1px solid $color-primary !important;
+  border-radius: $radius-sm !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.tab-content .btn.btn--primary:hover {
+  background: darken($color-primary, 10%) !important;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .leademail-modal {
+    width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .leademail-fields {
+    padding: $spacing-md $spacing-md 0 $spacing-md;
+  }
+  
+  .leademail-body {
+    margin: 0 $spacing-md;
+    min-height: 250px;
+  }
+  
+  .leademail-toolbar {
+    padding: $spacing-sm $spacing-md $spacing-md $spacing-md;
+  }
+  
+  .leademail-send {
+    padding: 10px 20px;
+    min-width: 80px;
+    font-size: $font-size-sm;
+  }
+}

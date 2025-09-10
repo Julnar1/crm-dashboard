@@ -1,0 +1,861 @@
+@import 'variables';
+@import 'mixins';
+
+// LeadView Container
+.lead-view {
+  background-color: white;
+  min-height: 100vh;
+  
+  .container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+// Back Button
+.back-btn {
+  color: #000000 !important;
+  font-size: $font-size-sm;
+  font-weight: bold;
+  text-decoration: none !important;
+  border: none;
+  background: none;
+  padding: 0;
+  margin-bottom: $spacing-sm;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  position: static;
+  
+  &:hover {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+  
+  &:focus {
+    color: #000000 !important;
+    text-decoration: none !important;
+    outline: none;
+  }
+}
+
+// Lead Profile Section
+.lead-profile {
+  .lead-avatar {
+    width: 70px;
+    height: 60px;
+    background-color: $border-light;
+    border-radius: $radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    // Placeholder for avatar
+    &::before {
+      content: "👤";
+      font-size: 24px;
+      color: $text-muted;
+    }
+  }
+  
+  .lead-name {
+    color: $text-color;
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: none;
+      color: $text-color;
+    }
+  }
+  
+  .lead-title {
+    color: $text-muted;
+    font-size: $font-size-sm;
+    margin-bottom: 4px;
+  }
+  
+  .lead-email {
+    color: $color-primary;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .copy-icon {
+    color: $text-muted;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: $transition-fast;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// Search and Convert Section
+.search-convert {
+  display: flex;
+  gap: $spacing-sm;
+  align-items: stretch;
+  flex: 1;
+  padding: $spacing-sm;
+  max-width: calc(50% - #{$spacing-lg}); // Slightly smaller to match perfectly
+  
+  .input-group {
+    flex: 1;
+    
+    .input-group-text {
+      background-color: $bg-card;
+      border: 1px solid $border-color;
+      color: $text-muted;
+    }
+    
+    .form-control {
+      border: 1px solid $border-color;
+      
+      &:focus {
+        border-color: $color-primary;
+        box-shadow: 0 0 0 0.2rem rgba($color-primary, 0.25);
+      }
+    }
+  }
+  
+  .btn-primary {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    white-space: nowrap;
+    padding: $spacing-sm $spacing-md;
+    
+    &:hover {
+      background-color: darken($color-primary, 10%);
+      border-color: darken($color-primary, 10%);
+    }
+  }
+}
+
+// AI Summary Card
+.ai-summary {
+  background-color: $bg-main;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  padding: $spacing-md;
+  transition: $transition-fast;
+  
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 1px rgba($color-primary, 0.1);
+  }
+  
+  h6 {
+    color: $color-primary;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    font-size: $font-size-xs;
+    line-height: 1.4;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .attachments {
+    strong {
+      
+      font-size: $font-size-xs;
+    }
+    .attachments {
+      background-color: red !important;
+    }
+    .attachments .d-flex.align-items-center i.bi-chevron-down,
+    .attachments .d-flex.align-items-center i.bi-chevron-up {
+      color: $color-primary !important;
+      transition: color 0.2s;
+      font-weight: bold;
+    }
+    
+    .add-attachment {
+      color: $color-primary;
+      font-size: $font-size-xs;
+      text-decoration: none;
+      cursor: pointer;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Lead Card (Left Panel)
+.lead-card {
+  background-color: $bg-card;
+  border-radius: $radius-md;
+ 
+  
+  // Action Buttons Row
+  .action-buttons {
+    display: flex;
+    gap: $spacing-xs;
+    margin-bottom: $spacing-lg;
+    background-color: $bg-main;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    
+    .action-item {
+      .action-label {
+        font-size: $font-size-xs;
+        color: $text-muted;
+        margin-top: 2px;
+        text-align: center;
+      }
+    }
+    
+    .btn {
+      background-color: $bg-card;
+      border: 1px solid $border-light;
+      border-radius: $radius-sm;
+      padding: $spacing-sm;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: $transition-fast;
+      
+      &:hover {
+        background-color: $bg-main;
+        border-color: $color-primary;
+      }
+      
+      i {
+        color: $color-primary;
+        font-size: 16px;
+        margin-bottom: $spacing-xs;
+      }
+      
+      small {
+        color: $text-color;
+        font-size: $font-size-xs;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  // About Section
+  .about-section {
+    h6 {
+      color: $text-color;
+      font-weight: 600;
+      margin-bottom: $spacing-md;
+      
+      i {
+        color: $color-primary;
+        margin-left: $spacing-sm;
+        cursor: pointer;
+        
+        &:hover {
+          color: darken($color-primary, 10%);
+        }
+      }
+    }
+  }
+  
+  // Lead Details
+  .lead-details {
+    .detail-item {
+      margin-bottom: $spacing-md;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      label {
+        color: $text-muted;
+        font-size: $font-size-xs;
+        font-weight: 500;
+        text-transform: capitalize;
+        letter-spacing: 0.5px;
+        margin-bottom: $spacing-xs;
+        display: block;
+      }
+      
+      p {
+        color: $text-color;
+        font-size: $font-size-sm;
+        margin-bottom: 0;
+        font-weight: 500;
+        
+        &.fw-bold {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.about-section > i.bi-chevron-down,
+.about-section > i.bi-chevron-up {
+  color: $color-primary !important;
+  transition: color 0.2s;
+  font-weight: bold;
+}
+
+// Tabs Section
+.tabs {
+  border-bottom: 1px solid $border-light;
+  padding-bottom: $spacing-sm;
+  margin-bottom: $spacing-md;
+  
+  .tab-item {
+    font-weight: 600;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: $transition-fast;
+    padding-bottom: $spacing-xs;
+    position: relative;
+    
+    &.active {
+      color: $color-primary;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -#{$spacing-sm + 1px};
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $color-primary;
+        border-radius: 1px;
+      }
+    }
+    
+    &:not(.active) {
+      color: $text-muted;
+      
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// Activity Content
+.activity-content {
+  .section-title {
+    color: $text-color;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-xs;
+    border-bottom: 1px solid $border-light;
+  }
+  
+  .activity-card {
+    background-color: $bg-card;
+    border: 1px solid $border-light;
+    border-radius: $radius-sm;
+    padding: $spacing-md;
+    margin-bottom: $spacing-sm;
+    transition: $transition-fast;
+    
+    &:hover {
+      border-color: $color-primary;
+      box-shadow: $shadow-sm;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .activity-header {
+      font-weight: 600;
+      color: $text-color;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .activity-detail {
+      color: $text-muted;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .activity-time {
+      color: $color-danger;
+      font-size: $font-size-xs;
+      
+      &.overdue {
+        color: $color-danger;
+        font-weight: 500;
+      }
+      
+      &.normal {
+        color: $text-muted;
+      }
+    }
+  }
+}
+
+// Empty State
+.empty-state {
+  text-align: center;
+  padding: $spacing-lg;
+  color: $text-muted;
+  font-size: $font-size-sm;
+  
+  i {
+    font-size: 48px;
+    margin-bottom: $spacing-md;
+    color: $border-color;
+  }
+  
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .lead-view {
+    .ai-summary {
+      position: relative !important;
+      top: auto !important;
+      right: auto !important;
+      width: 100% !important;
+      margin-bottom: $spacing-md;
+      margin-top: $spacing-md;
+    }
+    
+    .lead-profile {
+      margin-bottom: $spacing-md;
+    }
+    
+    .search-convert {
+      margin-bottom: $spacing-md;
+      padding: $spacing-sm;
+      max-width: calc(66.666667% - #{$spacing-md}); // Match col-md-8 width
+      
+      .input-group {
+        max-width: 100% !important;
+        margin-bottom: $spacing-sm;
+      }
+      
+      .btn-primary {
+        padding: $spacing-sm $spacing-md;
+      }
+    }
+    
+    .middle-content {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .lead-view {
+    .container-fluid {
+      padding-left: $spacing-sm;
+      padding-right: $spacing-sm;
+    }
+    
+    .lead-profile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+      
+      .lead-avatar {
+        width: 60px;
+        height: 50px;
+      }
+    }
+    
+    .search-convert {
+      flex-direction: column;
+      gap: $spacing-sm;
+      padding: $spacing-sm;
+      max-width: 100%; // Full width on small screens
+      
+      .input-group {
+        width: 100%;
+      }
+      
+      .btn-primary {
+        width: 100%;
+        padding: $spacing-sm $spacing-md;
+      }
+    }
+    
+    .action-buttons {
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+      padding: $spacing-md;
+      
+      .action-item {
+        flex: 1 1 calc(50% - #{$spacing-sm / 2});
+        min-width: 0;
+        
+        .action-label {
+          font-size: 10px;
+        }
+      }
+      
+      .btn {
+        flex: 1 1 calc(50% - #{$spacing-sm / 2});
+        min-width: 0;
+        padding: $spacing-sm;
+        
+        small {
+          font-size: 10px;
+        }
+      }
+    }
+    
+    .tabs {
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+      
+      .tab-item {
+        margin-bottom: $spacing-xs;
+        font-size: $font-size-xs;
+      }
+    }
+    
+    .middle-content {
+      margin-top: 0 !important;
+    }
+    
+    .ai-summary {
+      margin-top: $spacing-md;
+      margin-bottom: $spacing-md;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .lead-view {
+    .container-fluid {
+      padding-left: $spacing-xs;
+      padding-right: $spacing-xs;
+    }
+    
+    .lead-profile {
+      .lead-avatar {
+        width: 50px;
+        height: 40px;
+      }
+      
+      .lead-name {
+        font-size: $font-size-sm;
+      }
+      
+      .lead-title {
+        font-size: $font-size-xs;
+      }
+    }
+    
+    .action-buttons {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: $spacing-xs;
+      overflow-x: auto;
+      padding: $spacing-sm;
+      
+      .action-item {
+        flex: 0 0 auto;
+        min-width: 60px;
+        
+        .btn {
+          flex-direction: column;
+          align-items: center;
+          padding: $spacing-xs;
+          min-width: 50px;
+          
+          i {
+            font-size: 14px;
+            margin-bottom: 2px;
+          }
+        }
+        
+        .action-label {
+          font-size: 9px;
+          margin-top: 2px;
+          text-align: center;
+        }
+      }
+    }
+    
+    .tabs {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      gap: $spacing-sm;
+      
+      .tab-item {
+        font-size: 10px;
+        padding: $spacing-xs;
+        white-space: nowrap;
+        flex: 0 0 auto;
+      }
+    }
+    
+    .ai-summary {
+      padding: $spacing-sm;
+      
+      h6 {
+        font-size: $font-size-xs;
+      }
+      
+      p {
+        font-size: 10px;
+      }
+    }
+    
+    .middle-content {
+      margin-top: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .lead-view {
+    .lead-profile {
+      .lead-avatar {
+        width: 40px;
+        height: 35px;
+      }
+      
+      .lead-name {
+        font-size: $font-size-xs;
+      }
+    }
+    
+    .action-buttons {
+      padding: $spacing-xs;
+      gap: 4px;
+      
+      .action-item {
+        min-width: 50px;
+        
+        .btn {
+          padding: 4px;
+          
+          i {
+            font-size: 12px;
+          }
+        }
+        
+        .action-label {
+          font-size: 8px;
+        }
+      }
+    }
+    
+    .tabs {
+      gap: $spacing-xs;
+      
+      .tab-item {
+        font-size: 9px;
+        padding: 4px;
+      }
+    }
+    
+    .search-convert {
+      .input-group {
+        .form-control {
+          font-size: 14px;
+        }
+      }
+      
+      .btn-primary {
+        font-size: 14px;
+        padding: $spacing-xs $spacing-sm;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Utility Classes for LeadView
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.section-title {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $text-color;
+  margin-bottom: $spacing-md;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-icon {
+  color: $color-primary !important;
+}
+
+// Additional styles for inline styles in LeadView.js
+.attachments {
+  background: #fff;
+  border-radius: 8px;
+  margin-top: 16px;
+  
+  .attachments-header {
+    cursor: pointer;
+    
+    .note-icon {
+      margin-right: 8px;
+      color: #007bff;
+    }
+  }
+  
+  .add-attachment {
+    cursor: pointer;
+  }
+  
+  .attachments-content {
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+    margin-top: 8px;
+    
+    .attachments-info {
+      margin-bottom: 12px;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .no-attachments {
+      color: #666;
+      font-size: 14px;
+      font-style: italic;
+    }
+  }
+  
+  .attachment-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    
+    .attachment-preview {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 12px;
+    }
+    
+    .attachment-icon {
+      font-size: 24px;
+      color: #666;
+      margin-right: 12px;
+    }
+    
+    .attachment-details {
+      flex: 1;
+      
+      .attachment-name {
+        font-weight: 500;
+        font-size: 14px;
+        color: #333;
+      }
+      
+      .attachment-size {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  }
+}
+
+.file-input {
+  display: none;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  .loading-content {
+    text-align: center;
+    
+    h4 {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.email-content {
+  white-space: pre-wrap;
+}
+
+.meeting-content {
+  white-space: pre-wrap;
+}
+
+.back-section {
+  cursor: pointer;
+}
+
+.email-link {
+  cursor: pointer;
+}
+
+.copy-icon {
+  cursor: pointer;
+}
+
+.about-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  
+  .toggle-icon {
+    color: $color-primary;
+  }
+}
+
+.edit-icon {
+  color: blue;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-convert-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  
+  .search-bar {
+    flex: 1;
+    margin-right: 16px;
+  }
+  
+  .convert-button {
+    @include button-primary;
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 80px;
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+    white-space: nowrap;
+  }
+}

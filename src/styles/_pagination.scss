@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'mixins';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination-button {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+}
+
+.pagination-button:hover {
+  color: #222;
+}
+
+.pagination-page {
+  background: none;
+  border: none;
+  color: #222;
+  cursor: pointer;
+}
+
+.pagination-page.active {
+  background: #6c63ff;
+  color: white;
+}
+.pagination-ellipsis {
+  padding: 0 8px;
+  color: #888;
+}
+.pagination-page-link {
+  background: none;
+  border: none;
+  color: #222;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 23px;
+  height: 23px;
+  font-weight: 600;
+  margin: 0 2px;
+}
+
+.pagination-page-link.active {
+  background: #6c63ff;
+  color: white;
+  cursor: default;
+}
+
+
+.pagination-page-link.disabled {
+  background: none;
+  border: none;
+  color: #888;
+}
+.pagination-button-transparent {
+  background: none;
+  border: none;
+  color: #888;
+}

@@ -1,0 +1,118 @@
+// Import all SCSS files in the correct order
+@import "variables";
+@import "mixins";
+@import "base";
+@import "layout";
+@import "components";
+@import "buttons";
+@import "dashboard";
+@import "login";
+@import "register";
+@import "leadform";
+@import "leadpage";
+@import "leadview";
+@import "leadnotes";
+@import "leademail";
+@import "leadcalls";
+@import "leadtasks";
+@import "leadmeetings";
+@import './_accordion.scss';
+@import "companyPage";
+@import "companyForm";
+@import "pagination";
+
+// Global styles and overrides
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+// Bootstrap overrides to use our design system
+.btn-primary {
+  background-color: $color-primary !important;
+  border-color: $color-primary !important;
+
+  &:hover,
+  &:focus {
+    background-color: darken($color-primary, 10%) !important;
+    border-color: darken($color-primary, 10%) !important;
+  }
+}
+
+.btn-outline-primary {
+  color: $color-primary !important;
+  border-color: $color-primary !important;
+
+  &:hover,
+  &:focus {
+    background-color: $color-primary !important;
+    border-color: $color-primary !important;
+    color: #fff !important;
+  }
+}
+
+.text-primary {
+  color: $color-primary !important;
+}
+
+.bg-primary {
+  background-color: $color-primary !important;
+}
+
+// Utility classes for quick styling
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+.card-base {
+  @include card-base;
+}
+
+.shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+.shadow-md {
+  box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+// Responsive utilities
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-lg - 1px}) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: #{$breakpoint-lg}) {
+  .hide-desktop {
+    display: none !important;
+  }
+}

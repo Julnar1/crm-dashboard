@@ -1,0 +1,197 @@
+@import 'variables';
+@import 'mixins';
+.create-company-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 1004;
+  backdrop-filter: blur(10px);
+  &.active {
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.5);
+  }
+  transition: backdrop-filter 0.3s ease;    
+  pointer-events: auto;
+}
+
+.create-company-drawer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: 480px;
+  max-width: 100vw;
+  background: $color-white;
+  z-index: 1005;
+  box-shadow: -2px 0 16px rgba(34,34,34,0.08);
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding:2rem 1rem 1rem 1rem;
+  border-bottom: 1px solid $border-light;
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+  }
+  flex: 0 0 72px;
+  min-height: 72px;
+  max-height: 72px;
+}
+
+.create-company-form {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 72px - 45px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; // reduced gap for more compact layout
+  padding: 0 1rem;
+}
+
+// Grid system for form layout
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.25rem;
+  margin-left: -0.25rem;
+  gap: 0.5rem 0; // less vertical gap between rows
+}
+.col {
+  flex: 1 0 0%;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 0.97rem;
+}
+
+.form-control, .form-select {
+  border: 1px solid $color-gray-300;
+  border-radius: 8px;
+  padding: 8px 10px !important;
+  font-size: 1rem;
+  color: $text-color;
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    background: $color-white;
+  }
+}
+
+.invalid-feedback {
+  color: $color-danger;
+  font-size: 0.92rem;
+  margin-top: 2px;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.d-flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.text-danger {
+  color: $color-danger;
+}
+.btn-outline-secondary {
+  background: transparent;
+  color: $text-color !important;
+  border: 1px solid $color-gray-300 !important;
+  font-weight: 500 !important;
+  transition: none;
+}
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:active {
+  background: transparent !important;
+  color: $text-color !important;
+  border: 1px solid $color-gray-300 !important;
+  box-shadow: none !important;
+}
+label{
+  font-weight: 500;
+}
+.create-company-footer {
+  flex: 0 0 45px;
+  min-height: 45px;
+  max-height: 45px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  background: $color-white;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  .btn {
+    min-width: 0;
+    width: 50%;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 8px 0;
+  }
+}
+select[name="industry"], select[name="type"] {
+  color: $color-gray-300;
+}
+select[name="industry"]:focus, select[name="type"]:focus {
+  color: $text-color;
+}
+select[name="industry"]:not([value=""]), select[name="type"]:not([value=""]) {
+  color: $text-color;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+
+  .form-select {
+    width: 100%;
+    padding-right: 2.2em;
+    appearance: none;
+    background: none;
+  }
+
+  .select-chevron {
+    position: absolute;
+    right: 0.9em;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: $color-gray-500;
+    font-size: 1em;
+    z-index: 2;
+  }
+}

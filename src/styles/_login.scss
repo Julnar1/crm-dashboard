@@ -1,0 +1,63 @@
+@import "variables";
+@import "mixins";
+
+.login-bg {
+  min-height: 100vh;
+  background: $bg-main;
+  @include flex-center;
+}
+
+.login-container {
+  background-color: $bg-card;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg $spacing-lg $spacing-lg $spacing-lg;
+  width: 100%;
+  max-width: 370px;
+  text-align: center;
+}
+
+.login-title {
+  font-weight: 700;
+  margin-bottom: $spacing-lg;
+  color: $text-color;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: $spacing-md;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: $spacing-xs;
+  display: block;
+  color: $text-color;
+}
+
+.password-group {
+  @include flex-between;
+  margin-bottom: $spacing-xs;
+}
+
+.forgot-link {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  text-decoration: none;
+  margin-left: $spacing-md;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.login-footer {
+  margin-top: $spacing-lg;
+  font-size: $font-size-sm;
+}
+
+.login-footer a {
+  color: $color-primary;
+  text-decoration: none;
+  font-weight: 500;
+}

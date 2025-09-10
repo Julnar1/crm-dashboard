@@ -1,0 +1,322 @@
+@import 'variables';
+@import 'mixins';
+
+// Dashboard-specific styles
+.dashboard {
+  // Dashboard container
+  &__container {
+    @extend .container-fluid;
+    
+    // Ensure proper spacing for sidebar
+    @media (min-width: #{$breakpoint-sm}) {
+      margin-left: 40px;
+    }
+  }
+
+  // Statistics Section
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  // Stat Cards
+  &__stat-card {
+    @include card-base;
+    @include flex-between;
+    min-height: 90px;
+    padding: $spacing-lg $spacing-md;
+    transition: $transition-fast;
+
+    &:hover {
+      @include card-hover;
+    }
+
+    .stat-card__content {
+      flex: 1;
+    }
+
+    .stat-card__label {
+      font-size: $font-size-sm;
+      font-weight: 500;
+      color: $text-muted;
+      margin-bottom: $spacing-xs;
+    }
+
+    .stat-card__value {
+      font-size: $font-size-lg;
+      font-weight: 700;
+      line-height: 1.1;
+      color: $text-color;
+    }
+
+    .stat-card__icon {
+      @include flex-center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-left: $spacing-md;
+      font-size: 24px;
+    }
+  }
+
+  // Metrics Section (Conversion + Sales)
+  &__metrics {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Conversion Metrics
+  &__conversion {
+    @include card-base;
+    height: 100%;
+
+    .conversion__title {
+      font-weight: 600;
+      margin-bottom: $spacing-md;
+      color: $text-color;
+    }
+
+    .conversion__item {
+      margin-bottom: $spacing-sm;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .conversion__label {
+      font-size: $font-size-sm;
+      color: $text-muted;
+      margin-bottom: $spacing-xs;
+    }
+
+    .conversion__bar {
+      height: 6px;
+      background-color: #f1f1f1;
+      border-radius: $radius-xs;
+      overflow: hidden;
+
+      .conversion__fill {
+        height: 100%;
+        border-radius: $radius-xs;
+        transition: width $transition-normal ease;
+      }
+    }
+  }
+
+  // Sales Reports
+  &__sales {
+    @include card-base;
+    height: 100%;
+
+    .sales__header {
+      @include flex-between;
+      margin-bottom: $spacing-md;
+
+      .sales__title {
+        font-weight: 600;
+        color: $text-color;
+      }
+
+      .sales__filter {
+        select {
+          font-size: $font-size-sm;
+          border-color: $border-color;
+          border-radius: $radius-sm;
+          padding: $spacing-xs $spacing-md $spacing-xs $spacing-sm;
+          padding-right: 2rem;
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+          background-position: right $spacing-xs center;
+          background-repeat: no-repeat;
+          background-size: 1rem;
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+
+          &:focus {
+            border-color: $color-primary;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+          }
+        }
+      }
+    }
+
+    .sales__chart {
+      height: 220px;
+      border-radius: $radius-sm;
+      padding: $spacing-md;
+    }
+  }
+
+  // Team Performance
+  &__team {
+    @include card-base;
+
+    .team__header {
+      @include flex-between;
+      margin-bottom: $spacing-md;
+
+      .team__title {
+        font-weight: 600;
+        color: $text-color;
+      }
+
+      .team__export {
+        @include button-outline;
+        font-size: $font-size-sm;
+      }
+    }
+
+    .team__table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 $spacing-sm;
+      margin-top: $spacing-md;
+    }
+
+    .team__thead {
+      background-color: $bg-main;
+
+      th {
+        padding: $spacing-sm $spacing-md;
+        font-size: $font-size-sm;
+        font-weight: 500;
+        color: $text-muted;
+        text-align: left;
+        border: none;
+        background-color: $bg-main;
+      }
+    }
+
+    .team__tbody {
+      tr {
+        border: 1px solid $border-light;
+        border-radius: $radius-sm;
+        background-color: white;
+        transition: $transition-fast;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+          background-color: rgba($color-primary, 0.02);
+          border-color: $color-primary;
+          box-shadow: 0 2px 8px rgba($color-primary, 0.1);
+        }
+      }
+
+      td {
+        padding: $spacing-sm $spacing-md;
+        vertical-align: middle;
+        color: $text-color;
+        border: none;
+      }
+    }
+
+    .team__change {
+      display: inline-flex;
+      align-items: center;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-sm;
+      font-size: $font-size-xs;
+      font-weight: 600;
+      margin-left: $spacing-sm;
+
+      &--positive {
+        background-color: rgba($color-success, 0.1);
+        color: $color-success;
+      }
+
+      &--negative {
+        background-color: rgba($color-danger, 0.1);
+        color: $color-danger;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @include mobile {
+    &__stats {
+      grid-template-columns: 1fr;
+    }
+
+    &__metrics {
+      grid-template-columns: 1fr;
+    }
+
+    &__team {
+      .team__table {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+
+  @include tablet {
+    &__stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Dashboard-specific utility classes
+.dashboard-stat {
+  &--leads {
+    .stat-card__icon {
+      background: linear-gradient(to top, #ffffff 0%, #ede7ff 50%, #6c63ff 100%);
+      color: #6c63ff;
+    }
+  }
+
+  &--deals {
+    .stat-card__icon {
+      background: linear-gradient(to top, #ffffff 0%, #e6f7f2 50%, #43aa8b 100%);
+      color: #43aa8b;
+    }
+  }
+
+  &--closed {
+    .stat-card__icon {
+      background: linear-gradient(to top, #ffffff 0%, #ffe6ec 50%, #ff4d6d 100%);
+      color: #ff4d6d;
+    }
+  }
+
+  &--revenue {
+    .stat-card__icon {
+      background: linear-gradient(to top, #ffffff 0%, #fff5e6 50%, #ffb347 100%);
+      color: #ffb347;
+    }
+  }
+}
+
+// Conversion progress colors
+.conversion-progress {
+  &--contact { background-color: #6c63ff; }
+  &--qualified { background-color: #5bc0be; }
+  &--proposal { background-color: #ffd600; }
+  &--negotiation { background-color: #3c30ff; }
+  &--won { background-color: #43aa8b; }
+  &--lost { background-color: #ff4d6d; }
+}
+
+.team__table td,
+.team__table th {
+  padding: 0.75rem 0.5rem;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+.team__change {
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  display: inline-block;
+} 
+

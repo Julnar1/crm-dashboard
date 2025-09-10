@@ -1,0 +1,366 @@
+
+@import 'variables';
+@import 'mixins';
+@import 'buttons';
+
+// Overlay background
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1004;
+}
+
+// Slide-in panel
+.create-lead-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 360px;
+  background-color: $bg-card;
+  z-index: 1004;
+  padding: $spacing-lg;
+  overflow-y: auto;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease forwards;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  h6 {
+    margin: 0 0 $spacing-md 0;
+    font-size: $font-size-md;
+    font-weight: 600;
+    color: $text-color;
+  }
+}
+
+// Slide-in animation
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+// Close button
+.close-button {
+  position: absolute;
+  top: $spacing-sm * 1.5;
+  right: $spacing-md;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: $text-muted;
+  cursor: pointer;
+  z-index: 100;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $text-color;
+  }
+}
+
+// Form styles
+.lead-form {
+  label {
+    display: block;
+    margin-top: $spacing-md;
+    font-weight: 500;
+    font-family: $font-main;
+    color: $text-color;
+    font-size: $font-size-sm;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  input,
+  select {
+    width: 100%;
+    height: 40px;
+    font-size: $font-size-xs;
+    padding: 0 $spacing-sm;
+    border: 1px solid $border-color;
+    margin-top: $spacing-xs;
+    border-radius: $radius-xs;
+    font-family: $font-main;
+    background-color: $bg-card;
+    color: $text-color;
+    transition: border-color $transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.1);
+    }
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right $spacing-sm center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: $spacing-lg;
+
+    // Hide native arrow
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    // For IE10/11
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  .required {
+    color: $color-danger;
+    margin-left: $spacing-xs;
+  }
+
+  .button-row {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-lg;
+  }
+
+  .white-button {
+    width: 50%;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+    background-color: $bg-card;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: all $transition-fast;
+    font-family: $font-main;
+    font-weight: 500;
+
+    &:hover {
+      background-color: $bg-main;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .btn--primary {
+    width: 50%;
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: white !important;
+
+    &:hover {
+      background-color: darken($color-primary, 10%) !important;
+      border-color: $color-primary-light;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+.form-error {
+  color: $color-danger;
+  font-size: $font-size-xs;
+  margin-top: 2px;
+  margin-bottom: 0;
+  padding-left: 2px;
+  font-family: $font-main;
+  display: block;
+}
+
+body.sidebar-open {
+  overflow: hidden;
+}
+.lead-form {
+  input.error,
+  select.error {
+    border-color: $color-danger;
+    box-shadow: 0 0 0 2px rgba($color-danger, 0.1);
+  }
+}
+
+// Lead Form Dialog Styles (matching Company Form Dialog)
+.create-lead-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-lead-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 100vh;
+  background: white;
+  z-index: 1051;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.3s ease-out;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.create-lead-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .close-button {
+    position: static;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+  }
+}
+
+.create-lead-form {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  .form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+
+    .text-danger {
+      color: #dc3545;
+    }
+  }
+
+  .form-control,
+  .form-select {
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:focus {
+      border-color: #6c63ff;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.25);
+    }
+
+    &.is-invalid {
+      border-color: #dc3545;
+    }
+  }
+
+  .invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #dc3545;
+  }
+}
+
+.create-lead-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  background: #f8f9fa;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    &.btn-outline-secondary {
+      color: #6c757d;
+      border-color: #6c757d;
+      background: white;
+
+      &:hover {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+      }
+    }
+
+    &.btn-primary {
+      background-color: #6c63ff;
+      border-color: #6c63ff;
+      color: white;
+
+      &:hover {
+        background-color: #5a52d5;
+        border-color: #5a52d5;
+      }
+    }
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

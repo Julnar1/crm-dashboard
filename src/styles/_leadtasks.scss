@@ -1,0 +1,163 @@
+// LeadTasks styles
+
+.lead-tasks-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1004;
+}
+
+.lead-tasks-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(60,60,60,0.18);
+  width: 420px;
+  max-width: 95vw;
+  z-index: 1500;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease;
+}
+
+.lead-tasks-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 0 24px;
+}
+
+.lead-tasks-modal-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+}
+
+.lead-tasks-modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: color 0.15s;
+  line-height: 1;
+}
+.lead-tasks-modal-close:hover {
+  color: #6c63ff;
+}
+
+.lead-tasks-modal-body {
+  padding: 16px 24px 24px 24px;
+}
+
+.lead-tasks-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.lead-tasks-form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.lead-tasks-form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.lead-tasks-form-group.full-width {
+  flex: 2 1 100%;
+}
+
+.lead-tasks-form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.lead-tasks-form-group input,
+.lead-tasks-form-group select {
+  height: 40px;
+  font-size: 14px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0 12px;
+  background: #fafbfc;
+  color: #222;
+  transition: border-color 0.15s;
+}
+
+.lead-tasks-form-group input:focus,
+.lead-tasks-form-group select:focus {
+  border-color: #6c63ff;
+  outline: none;
+}
+
+.lead-tasks-form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.lead-tasks-note-textarea {
+  min-height: 80px;
+  font-size: 14px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fafbfc;
+  color: #222;
+  resize: vertical;
+  transition: border-color 0.15s;
+}
+.lead-tasks-note-textarea:focus {
+  border-color: #6c63ff;
+  outline: none;
+}
+
+.lead-tasks-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.required {
+  color: #ff4d6d;
+  margin-left: 2px;
+}
+
+@media (max-width: 600px) {
+  .lead-tasks-modal {
+    width: 98vw;
+    min-width: unset;
+    padding: 0;
+  }
+  .lead-tasks-modal-header,
+  .lead-tasks-modal-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .lead-tasks-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+} 
